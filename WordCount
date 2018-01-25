@@ -1,4 +1,3 @@
-```javascript
 
 package com.sundogsoftware.spark
 
@@ -33,7 +32,8 @@ object WordCount {
   
 }
 
-val textFile = sc.textFile("hdfs://...")
+```javascript
+var textFile = sc.textFile("hdfs://...")
 val counts = textFile.flatMap(line => line.split(" "))
                  .map(word => (word, 1))
                  .reduceByKey(_ + _)
