@@ -12,3 +12,6 @@ Code examples for Spark Scala
 ```css
    // code for coloring
 ```
+```scala
+   // code for coloring
+```
