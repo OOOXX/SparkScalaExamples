@@ -1,3 +1,4 @@
+```diff
 
 package com.sundogsoftware.spark
 
@@ -39,3 +40,6 @@ val counts = textFile.flatMap(line => line.split(" "))
                  .reduceByKey(_ + _)
 counts.saveAsTextFile("hdfs://...")
 
++ this text is highlighted in green
+- this text is highlighted in red
+```
