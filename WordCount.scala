@@ -17,16 +17,17 @@ object WordCount {
     val sc = new SparkContext("local[*]", "WordCount")   
     
     // Read each line of my book into an RDD
-    val input = sc.textFile("../book.txt")
+    val input = sc.textFile("...")
     
     // Split into words separated by a space character
-    val words = input.flatMap(x => x.split(" "))
-    
-    // Count up the occurrences of each word
-    val wordCounts = words.countByValue()
+    val wordCounts = input.flatMap(line => line.split(" "))
+                          .map(word => (word, 1)
+                          .reduceByKey(_ + _)
     
     // Print the results.
     wordCounts.foreach(println)
+    // Save the results                           
+    wordCounts.saveAsTextFile(...)
   }
   
 }
