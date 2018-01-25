@@ -15,3 +15,7 @@ Code examples for Spark Scala
 ```scala
    // code for coloring
 ```
+```diff
++ this text is highlighted in green
+- this text is highlighted in red
+```
