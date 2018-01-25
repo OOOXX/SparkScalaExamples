@@ -1,5 +1,5 @@
 
-#package com.sundogsoftware.spark
+package com.sundogsoftware.spark
 
 import org.apache.spark._
 import org.apache.spark.SparkContext._
@@ -18,10 +18,10 @@ object WordCount {
     val sc = new SparkContext("local[*]", "WordCount")   
     
     // Read each line of my book into an RDD
-    val input = sc.textFile("...")
+    val input = sc.textFile("../book.txt")
     
     // Split into words separated by a space character
-    val words = input.flatMap(line => line.split(" "))
+    val words = input.flatMap(x => x.split(" "))
     
     // Count up the occurrences of each word
     val wordCounts = words.countByValue()
@@ -31,14 +31,3 @@ object WordCount {
   }
   
 }
-
-
-var textFile = sc.textFile("hdfs://...")
-val counts = textFile.flatMap(line => line.split(" "))
-                 .map(word => (word, 1))
-                 .reduceByKey(_ + _)
-counts.saveAsTextFile("hdfs://...")
-
-+ this text is highlighted in green
-- this text is highlighted in red
-
